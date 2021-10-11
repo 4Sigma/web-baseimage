@@ -5,6 +5,8 @@ on:
     # Publish `master` as Docker `latest` image.
     branches:
       - main
+  release:
+    types: [published, created, edited]
 
   # Run tests for any PRs.
   pull_request:
