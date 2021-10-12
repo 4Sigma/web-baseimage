@@ -1,11 +1,12 @@
 FROM python:3.8-alpine AS build-image
 
 RUN apk add --no-cache                                              \
-        bash postgresql-client libpq jpeg-dev zlib-dev musl-dev     \
-        make autoconf libtool postgresql-dev build-base g++ gcc     \
-        unixodbc-dev freetds-dev libffi-dev czmq-dev libxml2-dev    \
-        libxslt-dev automake cmake git openssl-dev cargo            \
-        ffmpeg libwebp-dev libwebp
+         gcc musl-dev libffi-dev cargo openssl-dev
+
 
 RUN /usr/local/bin/pip install poetry
 
+FROM python:3.8-alpine AS deploy-image
+
+COPY --from=build-image /usr/local/bin/poetry /usr/local/bin/poetry
+COPY --from=build-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
