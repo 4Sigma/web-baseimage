@@ -11,8 +11,8 @@ on:
   # Run tests for any PRs.
   pull_request:
 
-env:
-  IMAGE_NAME: web-base
+# env:
+#   IMAGE_NAME:
 
 jobs:
   # Push image to GitHub Packages.
@@ -62,7 +62,7 @@ jobs:
         with:
           # list of Docker images to use as base name for tags
           images: |
-            ghcr.io/${{ github.repository_owner }}/$IMAGE_NAME
+            ghcr.io/${{ github.repository_owner }}/web-base
           # generate Docker tags based on the following events/attributes
           tags: |
             type=semver,pattern={{row}}
