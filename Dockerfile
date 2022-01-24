@@ -9,4 +9,4 @@ RUN /usr/local/bin/pip install poetry
 FROM python:3.10-alpine AS deploy-image
 
 COPY --from=build-image /usr/local/bin/poetry /usr/local/bin/poetry
-COPY --from=build-image /usr/local/lib/python3.8 /usr/local/lib/python3.8
+COPY --from=build-image /usr/local/lib/python3.10 /usr/local/lib/python3.10
