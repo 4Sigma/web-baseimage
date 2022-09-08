@@ -6,6 +6,6 @@ RUN apk update                                                          \
         make autoconf libtool postgresql-dev build-base g++ gcc         \
         unixodbc-dev freetds-dev libffi libffi-dev czmq-dev libxml2-dev \
         libxslt-dev automake cmake git openssl-dev ffmpeg libwebp-dev   \
-        poetry
+        cargo poetry
 
 CMD ["/bin/bash"]
