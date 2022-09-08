@@ -7,3 +7,5 @@ RUN apk update                                                          \
         unixodbc-dev freetds-dev libffi libffi-dev czmq-dev libxml2-dev \
         libxslt-dev automake cmake git openssl-dev ffmpeg libwebp-dev   \
         cargo poetry
+
+CMD ["/bin/bash"]
