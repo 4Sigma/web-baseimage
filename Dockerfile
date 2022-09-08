@@ -1,4 +1,4 @@
-FROM python:3.10-alpine AS build-image
+FROM python:3.10.6-alpine3.16 AS build-image
 
 RUN apk update                                                          \
  && apk add --no-cache                                                  \
