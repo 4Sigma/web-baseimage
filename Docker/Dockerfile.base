@@ -1,4 +1,7 @@
-FROM python:3.10.6-alpine3.16 AS build-image
+ARG PYTHON_VERSION
+ARG ALPINE_VERSION
+
+FROM python:$PYTHON_VERSION-alpine$ALPINE_VERSION AS build-image
 
 RUN apk update                                                          \
  && apk add --no-cache                                                  \
@@ -6,6 +9,6 @@ RUN apk update                                                          \
         make autoconf libtool postgresql-dev build-base g++ gcc         \
         unixodbc-dev freetds-dev libffi libffi-dev czmq-dev libxml2-dev \
         libxslt-dev automake cmake git openssl-dev ffmpeg libwebp-dev   \
-        cargo poetry
+        cargo
 
 CMD ["/bin/bash"]
