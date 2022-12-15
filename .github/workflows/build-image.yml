@@ -10,10 +10,10 @@ jobs:
   build_base_image:
     strategy:
       matrix:
-        python: [3.8, 3.9, 3.10, 3.11]
+        python: ["3.8", "3.9", "3.10", "3.11"]
         alpine: ["3.15", "3.16", "3.17"]
         include:
-          - python: 3.10.6
+          - python: "3.10.6"
             alpine: "3.16"
         # exclude:
         #   - python: 3.11.1
