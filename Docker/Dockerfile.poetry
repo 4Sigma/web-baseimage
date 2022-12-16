@@ -8,7 +8,8 @@ ENV POETRY_HOME=/opt/poetry
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true
 ENV PATH="$POETRY_HOME/bin:$PATH"
 RUN apk add --no-cache                                                  \
-        bash zlib-dev musl-dev make autoconf build-base g++ gcc cargo
+        bash zlib-dev musl-dev make autoconf build-base g++ gcc cargo   \
+        libffi-dev
 RUN  pip install --upgrade pip && pip install poetry
 
 CMD ["/bin/bash"]
