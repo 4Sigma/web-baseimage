@@ -8,6 +8,6 @@ ENV POETRY_HOME=/opt/poetry
 ENV POETRY_VIRTUALENVS_IN_PROJECT=true
 ENV PATH="$POETRY_HOME/bin:$PATH"
 COPY ./src/install_poetry.py /app/install_poetry.py
-RUN python3 /app/install_poetry.py
+RUN pip install poetry
 
 CMD ["/bin/bash"]

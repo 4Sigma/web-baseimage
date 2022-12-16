@@ -45,7 +45,7 @@ jobs:
           string: ${{ github.repository_owner }}
 
       - name: Build and push
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           build-args: |
             PYTHON_VERSION=${{ matrix.python }}
@@ -56,7 +56,7 @@ jobs:
           tags: ghcr.io/${{ steps.string.outputs.lowercase }}/web-base:${{ matrix.python }}-alpine${{ matrix.alpine }}
 
       - name: Build and push Poetry
-        uses: docker/build-push-action@v2
+        uses: docker/build-push-action@v3
         with:
           build-args: |
             PYTHON_VERSION=${{ matrix.python }}
