@@ -39,7 +39,7 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
 
-      - id: github_repository_name
+      - id: string
         uses: ASzc/change-string-case-action@v5
         with:
           string: ${{ github.repository_owner }}
@@ -53,7 +53,7 @@ jobs:
           context: .
           file: ./Docker/Dockerfile.base
           push: true
-          tags: ghcr.io/${{ steps.github_repository_name.string.outputs.lowercase }}/web-base:${{ matrix.python }}-alpine${{ matrix.alpine }}
+          tags: ghcr.io/${{ steps.string.outputs.lowercase }}/web-base:${{ matrix.python }}-alpine${{ matrix.alpine }}
 
 #       - name: Poetry Meta
 #         id: meta-web-poetry
