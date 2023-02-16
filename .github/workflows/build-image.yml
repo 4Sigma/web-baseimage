@@ -15,9 +15,9 @@ jobs:
         include:
           - python: "3.10.6"
             alpine: "3.16"
-        # exclude:
-        #   - python: 3.11.1
-        #     alpine: "3.15"
+        exclude:
+          - python: 3.10.9
+            alpine: "3.15"
 
     runs-on: ubuntu-latest
     steps:
