@@ -10,16 +10,17 @@ jobs:
   build_base_image:
     strategy:
       matrix:
-        python: ["3.10", "3.11", "3.12", "3.13"]
-        alpine: ["3.18", "3.19", "3.20", "3.21", "3.22"]
+        # "3.10", "3.11",
+        python: ["3.11", "3.12", "3.13"]
+        # Old version "3.18", "3.19", "3.20",
+        alpine: ["3.21", "3.22"]
         # include:
         #   - python: "3.10.6"
         #     alpine: "3.16"
-        exclude:
-          - python: "3.12"
-            alpine: "3.18"
-          - python: "3.13"
-            alpine: "3.18"
+        # For exclude same combination
+        # exclude:
+        # - python: "3.12"
+        #   alpine: "3.18"
 
     runs-on: ubuntu-latest
     steps:
