@@ -11,9 +11,9 @@ jobs:
     strategy:
       matrix:
         # "3.10", "3.11",
-        python: ["3.11", "3.12", "3.13"]
+        python: ["3.13"]
         # Old version "3.18", "3.19", "3.20",
-        alpine: ["3.21", "3.22"]
+        alpine: ["3.22"]
         # include:
         #   - python: "3.10.6"
         #     alpine: "3.16"
@@ -71,3 +71,15 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ghcr.io/${{ steps.string.outputs.lowercase }}/web-base/poetry:${{ matrix.python }}-alpine${{ matrix.alpine }}
+
+      - name: Build and push UV
+        uses: docker/build-push-action@v6
+        with:
+          build-args: |
+            PYTHON_VERSION=${{ matrix.python }}
+            ALPINE_VERSION=${{ matrix.alpine }}
+          context: .
+          file: ./Docker/Dockerfile.uv
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ghcr.io/${{ steps.string.outputs.lowercase }}/web-base/uv:${{ matrix.python }}-alpine${{ matrix.alpine }}
