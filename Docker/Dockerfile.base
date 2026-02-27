@@ -3,13 +3,10 @@ ARG ALPINE_VERSION
 
 FROM python:$PYTHON_VERSION-alpine$ALPINE_VERSION AS build-image
 
-RUN apk update                                                          \
-        && apk add --no-cache                                                  \
-        bash postgresql-client libpq jpeg-dev zlib-dev musl-dev         \
-        make autoconf libtool postgresql-dev build-base g++ gcc         \
-        unixodbc-dev freetds-dev libffi libffi-dev czmq-dev libxml2-dev \
-        libxslt-dev automake cmake git openssl-dev ffmpeg libwebp-dev   \
-        cargo
-RUN pip install uv
+RUN apk update --no-cache                                                 \
+    && apk add --no-cache                                                 \
+    bash sudo postgresql-client libpq jpeg zlib libtool unixodbc freetds  \
+    libffi czmq libxml2 libxslt openssl libwebp openjpeg ffmpeg ncdu htop \
+    mailcap libmagic vips vips-tools
 
 CMD ["/bin/bash"]

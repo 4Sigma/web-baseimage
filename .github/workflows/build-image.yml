@@ -60,18 +60,6 @@ jobs:
           push: true
           tags: ghcr.io/${{ steps.string.outputs.lowercase }}/web-base/python:${{ matrix.python }}-alpine${{ matrix.alpine }}
 
-      - name: Build and push Poetry
-        uses: docker/build-push-action@v6
-        with:
-          build-args: |
-            PYTHON_VERSION=${{ matrix.python }}
-            ALPINE_VERSION=${{ matrix.alpine }}
-          context: .
-          file: ./Docker/Dockerfile.poetry
-          platforms: linux/amd64,linux/arm64
-          push: true
-          tags: ghcr.io/${{ steps.string.outputs.lowercase }}/web-base/poetry:${{ matrix.python }}-alpine${{ matrix.alpine }}
-
       - name: Build and push UV
         uses: docker/build-push-action@v6
         with:
