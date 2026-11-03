@@ -6,6 +6,8 @@ on:
   release:
     types: [published, created, edited]
   pull_request:
+  schedule:
+    - cron: "0 3 * * 1" # ogni lunedì 03:00 UTC
 jobs:
   build_base_image:
     strategy:
